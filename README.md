@@ -25,3 +25,7 @@ We can the use `go tool objdump` to disasemble the binary and look at the disass
 ```shell
 go tool objdump generics > objdump
 ```
+
+## Slides
+
+To download the slides from this presentation use this [link](https://drive.google.com/file/d/1x7vfwC7hwwIgakRlZ0eBUO3nGiDMsOZ2/view?usp=sharing).
