@@ -26,6 +26,34 @@ We can the use `go tool objdump` to disasemble the binary and look at the disass
 go tool objdump generics > objdump
 ```
 
+### Notable things
+
+Interesting things that we observe in the dissambled machine code:
+
+#### Number of PrintAndReturn function declarations
+
+We can find three `PrintAndReturn` function declarations at the dissambled code.
+
+- `main.PrintAndReturn[go.shape.*uint8]`
+- `main.PrintAndReturn[go.shape.string]`
+- `main.PrintAndReturn[go.shape.int]`
+
+This is consistent to what we know about generics in Go.
+
+The compiler has generated one function for every different GC Shape (memory type) that we invoke the `PrintAndReturn` function with.
+
+`main.PrintAndReturn[go.shape.int]` is for `_ = PrintAndReturn(printableInt(1))`
+
+(the compiler treats `int` and `printableInt` the same, because they have the same memory shape)
+
+`main.PrintAndReturn[go.shape.string]` is for `_ = PrintAndReturn(printableString("string"))`
+
+(the compiler treats `string` and `printableString` the same, because they have the same memory shape)
+
+`main.PrintAndReturn[go.shape.*uint8]` is for `_ = PrintAndReturn(&A{})` and `_ = PrintAndReturn(&B{})`
+
+Even though `A` and `B` are different types with different memory shapes, we are passing them via pointers, which are actually the same type (`*uint8`).
+
 ## Slides
 
 To download the slides from this presentation use this [link](https://drive.google.com/file/d/1x7vfwC7hwwIgakRlZ0eBUO3nGiDMsOZ2/view?usp=sharing).
