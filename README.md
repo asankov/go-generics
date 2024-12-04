@@ -30,7 +30,7 @@ go tool objdump generics > objdump
 
 Interesting things that we observe in the dissambled machine code:
 
-#### Number of PrintAndReturn function declarations
+#### Number of `PrintAndReturn` function declarations
 
 We can find three `PrintAndReturn` function declarations at the dissambled code.
 
@@ -42,15 +42,34 @@ This is consistent to what we know about generics in Go.
 
 The compiler has generated one function for every different GC Shape (memory type) that we invoke the `PrintAndReturn` function with.
 
-`main.PrintAndReturn[go.shape.int]` is for `_ = PrintAndReturn(printableInt(1))`
+This call:
+
+```go
+_ = PrintAndReturn(printableInt(1))
+```
+
+generates this function - `main.PrintAndReturn[go.shape.int]`.
 
 (the compiler treats `int` and `printableInt` the same, because they have the same memory shape)
 
-`main.PrintAndReturn[go.shape.string]` is for `_ = PrintAndReturn(printableString("string"))`
+This call:
+
+```go
+_ = PrintAndReturn(printableString("string"))
+```
+
+generates this function - `main.PrintAndReturn[go.shape.string]`.
 
 (the compiler treats `string` and `printableString` the same, because they have the same memory shape)
 
-`main.PrintAndReturn[go.shape.*uint8]` is for `_ = PrintAndReturn(&A{})` and `_ = PrintAndReturn(&B{})`
+And these two calls:
+
+```go
+_ = PrintAndReturn(&A{})
+_ = PrintAndReturn(&B{})
+```
+
+generate this function - `main.PrintAndReturn[go.shape.*uint8]`.
 
 Even though `A` and `B` are different types with different memory shapes, we are passing them via pointers, which are actually the same type (`*uint8`).
 
