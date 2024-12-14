@@ -1,0 +1,13 @@
+.list>h1 {
+    margin-bottom: 10px;
+}
+
+.benefits>ul {
+    list-style-type: "+";
+    padding-left: 20px;
+}
+
+.drawbacks>ul {
+    list-style-type: "-";
+    padding-left: 20px;
+}
