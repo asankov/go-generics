@@ -11,3 +11,30 @@
     list-style-type: "-";
     padding-left: 20px;
 }
+
+.fancy-table>table {
+    text-align: center;
+}
+
+.fancy-table>table>thead>tr>th {
+    font-weight: bold;
+    text-align: center;
+}
+
+td:nth-child(1) {
+    font-weight: bold;
+}
+
+.stamp {
+    width: 250px;
+    position: absolute;
+    bottom: 120px;
+    right: 50px;
+    height: auto;
+    transform: rotate(-25deg);
+}
+
+.code-medium {
+    --slidev-code-font-size: 0.9em !important;
+    --slidev-code-line-height: 1em !important;
+}

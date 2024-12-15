@@ -143,10 +143,10 @@ func ToSlice[T any](a, b any) T[] {
 ```
 
 ```go {4-5|7-8|10}{lines: true, startLine: 4}
-intSlice := ToSlice[int](1, 2) // intSlice if of type []int
+intSlice := ToSlice[int](1, 2)           // intSlice if of type []int
 floatSlice := ToSlice[float32](1.5, 2.5) // floatSlice if of type []float32
 
-// type-inference - we can be less verbose and omit the type
+// type inference - we can be less verbose and omit the type
 intSlice := ToSlice(1, 2) // intSlice if of type []int
 
 anotherSlice := ToSlice(1, "string") // ❌ compile-time error: type mismatch
@@ -199,6 +199,11 @@ layout: default
 # Simplicity <span style="font-weight: normal;">(over C++)</span>
 # Fast compilation time <span style="font-weight: normal;">(over C++)</span>
 # Fast runtime <span style="font-weight: normal;">(same as C++)</span>
+
+<div class="text-red-500 pt-30px" v-click>
+
+  # Generics complicate all three
+</div>
 
 </div>
 
@@ -269,92 +274,38 @@ margin-top: 10px;
 </style>
 
 ---
-layout: default
----
 
-<div class="timeline">
-    <div class="timeline-entry">
-      <div class="date-title">2009 - Language is publicly announced</div>
-      <div class="subtitle">first complaint about lack of generics</div>
-    </div>
-    <div class="timeline-entry">
-      <div class="date-title">2010 - First proposal for generics - <span class="font-bold">Type Functions</span></div>
-    </div>
-    <div class="timeline-entry">
-      <div class="date-title">2011 - Second proposal for generics - <span class="font-bold">Generalized Types</span></div>
-    </div>
-    <div class="timeline-entry">
-      <div class="date-title">2012 - Go 1.0 is released</div>
-    </div>
-    <div class="timeline-entry">
-      <div class="date-title">2013 - Third and fourth proposals - <span class="font-bold">Type Parameters and Generalized Types v2</span></div>
-    </div>
-    <div class="timeline-entry">
-      <div class="date-title">2014</div>
-    </div>
-  </div>
+# 2015
+
+# 2016
+
+# 2017
+
+# 2018 <span class="font-normal">- Fifth proposals -</span> Contracts
+
+# 2019 <span class="font-normal">- Sixth proposals -</span> Contracts v2
+
+# 2020
+
+# 2021 <span class="font-normal">- Final and </span>ACCEPTED <span class="font-normal">proposal -</span> Type Parameters
 
 <style>
+h1 {
+  @apply pb-10px
+}
 
-  .timeline {
-    position: relative;
-    margin: 20px 0;
-    padding: 0 0 0 0px; /* space for the line and dots */
-    border-left: 5px solid black;
-  }
-
-  .timeline-entry {
-    position: relative;
-    margin: 20px 0 0 30px;
-  }
-
-  .timeline-entry::before {
-    content: "";
-    position: absolute;
-    left: -45px; /* Position the circle to align with the line */
-    top: 0;
+h1::before {
+   content: "";
+    /* position: absolute; */
+    /* left: -45px; Position the circle to align with the line */
+    /* top: 0; */
     width: 25px;
     height: 25px;
     background: black;
     border-radius: 50%;
 margin-top: 10px;
-  }
-
-  .date-title {
-    font-weight: normal;
-    font-size: 1.5em;
-  }
-
-  .subtitle {
-    color: #d33;
-    font-style: italic;
-    font-size: 0.9em;
-    margin-top: -5px;
-  }
-
+}
 </style>
-
----
-
-<div style="font-size: 2rem; width: 100%">
-  <div class="flex items-center pt-20px"><span class="font-bold">2009 -</span><span class="text-left pl-5px">Language is publicly announced</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2010 -</span><span class="text-left pl-5px">First proposal -</span><span class="pl-5px font-bold">Type Functions</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2011 -</span><span class="text-left pl-5px">Second proposal -</span><span class="pl-5px font-bold">Generalized Types</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2012 -</span><span class="text-left pl-5px">Go 1.0 is released</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2013 -</span><span class="text-left pl-5px">Third and fourth proposals -</span><span class="w-350px pl-5px font-bold">Type Parameters and Generalized Types v2</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2014 -</span></div>
-</div>
----
-
-<div style="font-size: 2rem; width: 100%">
-  <div class="flex items-center pt-20px"><span class="font-bold">2015 -</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2016 -</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2017 -</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2018 -</span><span class="text-left pl-5px">Fifth proposal -</span><span class="pl-5px font-bold">Contracts</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2019 -</span><span class="text-left pl-5px">Sixth proposal -</span><span class="pl-5px font-bold">Contracts v2</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2020 -</span></div>
-  <div class="flex items-center pt-20px"><span class="font-bold">2021 -</span><span class="text-left pl-5px">Final and <span class="font-bold">ACCEPTED</span> proposal -</span><span class="pl-5px font-bold">Type Parameters</span></div>
-</div>
 
 ---
 layout: statement
@@ -368,7 +319,12 @@ layout: default
 
 <img src="./assets/the-generic-dilemma.png" class="center" width="500px"/>
 
-# The generic dilemma is this:<br> do you want slow programmers, slow compilers and bloated binaries, or slow execution times?
+<div v-click>
+
+  # The generic dilemma is this:<br> do you want slow programmers, slow compilers and bloated binaries, or slow execution times?
+
+</div>
+
 
 <Links :hrefs="['https://research.swtch.com/generic']"/>
 
@@ -418,16 +374,7 @@ layout: default
   .default {
     padding-top: 10px
 }
-.fancy-table>table {
-  text-align: center;
-}
-.fancy-table>table>thead>tr>th {
-  font-weight: bold;
-  text-align: center;
-}
-td:nth-child(1) {  
-  font-weight: bold;
-}
+
 </style>
 ---
 layout: statement
@@ -540,7 +487,7 @@ layout: default
 
 <Links :hrefs="['https://github.com/golang/proposal/blob/master/design/generics-implementation-stenciling.md']"/>
 
-TODO: rejected
+<img v-click src="./assets/rejected.png" class="stamp">
 
 ---
 layout: default
@@ -577,11 +524,6 @@ f := Sum(1.5, 2.5)
   text-align: center;
   margin-bottom: 20px;
 }
-  /*  todo: duplicated   */
-  .code-medium {
-    --slidev-code-font-size: 0.9em !important;
-    --slidev-code-line-height: 1em !important;
-  }
 </style>
 ---
 
@@ -659,7 +601,7 @@ layout: default
 
 <Links :hrefs="['https://github.com/golang/proposal/blob/master/design/generics-implementation-dictionaries.md', 'https://github.com/golang/proposal/blob/master/design/generics-implementation-dictionaries-go1.18.md']"/>
 
-TODO: rejected
+<img v-click src="./assets/rejected.png" class="stamp">
 
 ---
 layout: default
@@ -669,6 +611,8 @@ layout: default
 ## The Middle Ground
 
 <img src="./assets/gc-shape-stenciling.png" class="center pt-20px" width="1700px"/>
+
+<img v-click src="./assets/accepted.png" class="stamp">
 
 <Links :hrefs="['https://github.com/golang/proposal/blob/master/design/generics-implementation-gcshape.md', 'https://github.com/golang/proposal/blob/master/design/generics-implementation-dictionaries-go1.18.md']"/>
 ---
@@ -834,31 +778,159 @@ TEXT main.PrintAndReturn[go.shape.*uint8](SB)
    main.go:6    0x10008e6dc   97ffe621    CALL fmt.Println(SB)
 ```
 
-<div v-click="+1" v-click.hide="+2">
-
-  <div>R0 - Type Dictionary</div>
-  <div>R1 - Value t</div>
-  <br>
-  <div>Type Dictionary - 136(SRP)</div>
-  <div>Value t - 144(RSP)</div>
-  <br>
-  <div>RSP - Current Stack Pointer</div> 
-
+<div>
+<v-switch>
+  <template #1>
+    <div>
+          <div>R0 - Type Dictionary</div>
+          <div>R1 - Value t</div>
+          <br>
+          <div>Type Dictionary - 136(SRP)</div>
+          <div>Value t - 144(RSP)</div>
+          <br>
+          <div>RSP - Current Stack Pointer</div> 
+    </div>
+  </template>
+  <template #2>
+    <div>
+      <div>R0 - Value t</div>
+      <div>R1 - (*A/*B).String()</div>
+      <br>
+      <div>Type Dictionary - 136(SRP)</div>
+      <div>Value t - 144(RSP)</div>
+      <br>
+      <div>RSP - Current Stack Pointer</div>
+    </div>
+  </template>
+  <template #4>
+    <div class="text-center">
+      Full example and instructions at <br> <a href="github.com/asankov/go-generics">github.com/asankov/go-generics</a>
+      <img class="m-auto w-2/7" src="./assets/qr-github.png"/>
+    </div>
+  </template>
+</v-switch>
 </div>
-
-<div v-click="+3" v-click.hide="+4">
-
-  <div>R0 - Value t</div>
-  <div>R1 - (*A/*B).String()</div>
-  <br>
-  <div>Type Dictionary - 136(SRP)</div>
-  <div>Value t - 144(RSP)</div>
-  <br>
-  <div>RSP - Current Stack Pointer</div> 
-
-</div>
-
 </span>
+</div>
 
+---
+layout: default
+---
+
+# GC Shape Stenciling
+## The Middle Ground
+
+<div class="list benefits text-2xl text-green-600 mt-50px font-bold">
+
+  # Benefits
+  
+  - little performance penalty in compile-time
+  - little (to high*) performance penalty in runtime
 
 </div>
+<div class="drawbacks text-2xl text-red-600 font-bold">
+
+  # Drawbacks
+  
+  - little performance penalty in compile-time
+  - little (to high*) performance penalty in runtime
+
+</div>
+
+<Links :hrefs="['https://github.com/golang/proposal/blob/master/design/generics-implementation-gcshape.md', 'https://github.com/golang/proposal/blob/master/design/generics-implementation-dictionaries-go1.18.md']"/>
+
+---
+layout: default
+---
+
+# How big can the runtime performance hit be?
+
+<img src="./assets/planetscale.png">
+
+<Links :hrefs="['https://planetscale.com/blog/generics-can-make-your-go-code-slower']"/>
+---
+layout: default
+---
+
+# How big can the runtime performance hit be?
+## TLDR
+
+<div class="flex flex-col">
+
+  - Using generics in low-level mission critical code can have <span class="font-bold">big*</span> performance hit <br>
+  (Using interface can cause similar, but <span class="font-bold">smaller*</span> performance hit)
+  - <span class="font-bold">Worst case scenario*</span> is passing interfaces to generic methods <br>
+  (double dictionary lookup and double dereferencing)
+  
+  - If this matters to you just don't use generics; non-generic code has not gotten slower 
+  
+  <span class="font-bold text-right">
+    <div class="mb-10px" > baseline = 5 µs </div>
+    <div> *big == 2-3 µs </div>
+    <div> *smaller == 1-2 µs </div>
+    <div> *worst case == 3-5 µs </div>
+  </span>
+</div>
+
+
+<Links :hrefs="['https://planetscale.com/blog/generics-can-make-your-go-code-slower']"/>
+---
+layout: default
+---
+
+# Summary
+## TLDR
+
+<div class="mt-50px">
+  
+  - Generics have been a long-waited feature for some part of the community
+  - The Go team finally shipped it after 13 years, because they wanted to make it right
+  - There are some performance implications to using generics, but they will probably not impact a big percent of the language users
+  - The performance can be improved in future releases, as the specs don't prevent further optimisations
+
+</div>
+---
+
+<div class="fancy-table">
+
+| | Fast programmers | Fast compilers | Fast runtimes |
+| - | - | - | - |
+| C    | ❌  |✅ | ✅ |
+| C++  | ✅ | ❌ | ✅ |
+| Java | ✅ | ✅ | ❌ |
+| Go |  <v-click at="+1">✅</v-click> | <v-click at="+1"><span class="text-green-600 font-bold">Yes, mostly</span></v-click> | <v-click at="+1"><span class="text-orange-500 font-bold">Yes, with some caveats</span></v-click> |
+
+</div>
+
+---
+layout: section
+---
+
+<div class="flex flex-col">
+
+  # Thank you!
+  
+  # Questions?
+  
+  <div class="flex flex-rows justify-between mt-30px">
+    <div style="text-align: right;">
+      <h2> <ri-linkedin-box-fill/><span style="font-weight: normal;"> Anton Sankov</span> </h2>
+      <h2> <mdi-web/>/<ri-bluesky-fill/><span style="font-weight: normal;">asankov.dev</span> </h2>
+    </div>
+    <div>
+      <div class="font-bold text-xl">Download the slides</div>
+      <img style="width: 150px; margin: auto;" src="./assets/qr-github.png"/>
+    </div>
+  </div>
+
+</div>
+
+<style>
+h1 {
+  margin: auto;
+  padding: 15px 0;
+}
+h2 {
+  padding: 5px 0;
+}
+</style>
