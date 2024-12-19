@@ -657,7 +657,7 @@ go tool objdump generics > objdump.txt
 
 <div class="flex flex-row">
 
-```go {*|19|20|22-23}{lines: false, at: '1'}
+```go {*|24|25|27-28}{lines: false, at: '1'}
 func PrintAndReturn[T fmt.Stringer](t T) T {
   fmt.Println(t.String())
   return t
@@ -879,7 +879,6 @@ layout: default
 ---
 
 # Summary
-## TLDR
 
 <div class="mt-50px">
   
