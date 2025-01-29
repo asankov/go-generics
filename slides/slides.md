@@ -48,9 +48,9 @@ layout: full
   - Programming in Go since 2019
   - Currently working on a Kubernetes Security Product
 
+    <br>
     <div>
       <h2> <ri-linkedin-box-fill/><span style="font-weight: normal;"> Anton Sankov</span> </h2>
-      <h2>  <ri-instagram-line/>/<ri-threads-line/><span style="font-weight: normal;">@a.sankov</span> </h2>
       <h2> <mdi-web/>/<ri-bluesky-fill/><span style="font-weight: normal;">asankov.dev</span> </h2>
     </div>
   </div>
@@ -393,8 +393,10 @@ layout: default
 <Links :hrefs="['https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#implementation']"/>
 
 ---
+layout: statement
+---
 
-TODO: slides outlining 3 proposal
+# Let's write more proposals
 
 ---
 layout: default
@@ -473,7 +475,7 @@ layout: default
 
   # Benefits
   
-  - no performance penaly in runtime
+  - no performance penalty in runtime
 
 </div>
 <div class="drawbacks text-2xl text-red-600 font-bold">
