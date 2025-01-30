@@ -228,21 +228,13 @@ layout: default
 
 ## Someone complains about the lack of generics
 
-<img src="./assets/someone-complains-both.png" class="center" width="500px">
+<img src="./assets/someone-complains-both.png" class="block mt-2 mx-auto" width="500px">
 
 <Links :hrefs="['https://groups.google.com/g/golang-nuts/c/70-pdwUUrbI/m/onMsQspcljcJ']"/>
 
 <style>
 h1 {
   margin-bottom: 20px;
-}
-
-/* todo; duplicated */
-.center {
-  display: block;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
 }
 </style>
 
@@ -322,7 +314,7 @@ layout: statement
 layout: default
 ---
 
-<img src="./assets/the-generic-dilemma.png" class="center" width="500px"/>
+<img src="./assets/the-generic-dilemma.png" class="block mt-2 mx-auto" width="500px"/>
 
 <div v-click>
 
@@ -337,12 +329,6 @@ layout: default
 .default {
     padding-top: 10px
 }
-  /* todo; duplicated */
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 h1 {
   margin-top: 15px;
@@ -355,7 +341,7 @@ h1 {
 layout: default
 ---
 
-<img src="./assets/the-generic-dilemma.png" class="center" width="500px"/>
+<img src="./assets/the-generic-dilemma.png" class="block mt-2 mx-auto" width="500px"/>
 
 <div class="fancy-table">
 
@@ -370,13 +356,7 @@ layout: default
 <Links :hrefs="['https://research.swtch.com/generic']"/>
 
 <style>
-  /* todo; duplicated */
-  .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .default {
+.default {
     padding-top: 10px
 }
 
