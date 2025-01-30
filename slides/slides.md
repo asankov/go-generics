@@ -100,7 +100,7 @@ layout: full
 <div class="full-center code-big">
 
 ```go {*}{lines: true}
-func ToSlice[T any](a, b any) T[] {
+func ToSlice[T any](a, b T) T[] {
   return []T{a, b}
 }
 ```
@@ -133,7 +133,7 @@ layout: full
 <div class="code-small pt-5px">
 
 ```go {*}{lines: true}
-func ToSlice[T any](a, b any) T[] {
+func ToSlice[T T](a, b T) T[] {
   return []T{a, b}
 }
 ```
@@ -192,9 +192,18 @@ layout: default
 
 <div style="margin-top: 100px; text-align: center;">
 
-# Simplicity <span style="font-weight: normal;">(over C++)</span>
-# Fast compilation time <span style="font-weight: normal;">(over C++)</span>
-# Fast runtime <span style="font-weight: normal;">(same as C++)</span>
+<v-click>
+
+  # Simplicity <span style="font-weight: normal;">(over C++)</span>
+</v-click>
+<v-click>
+  
+  # Fast compilation time <span style="font-weight: normal;">(over C++)</span>
+</v-click>
+<v-click>
+  
+  # Fast runtime <span style="font-weight: normal;">(same as C++)</span>
+</v-click>
 
 <div class="text-red-500 pt-30px" v-click>
 
