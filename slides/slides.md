@@ -923,9 +923,10 @@ layout: section
       <h2> <ri-linkedin-box-fill/><span style="font-weight: normal;"> Anton Sankov</span> </h2>
       <h2> <mdi-web/>/<ri-bluesky-fill/><span style="font-weight: normal;">asankov.dev</span> </h2>
     </div>
-    <div>
+    <div class="flex flex-col items-center">
       <div class="font-bold text-xl">Download the slides</div>
       <img style="width: 150px; margin: auto;" src="./assets/qr-github.png"/>
+      <div class="font-bold text-xl"><a href="https://asankov.dev/go-generics">asankov.dev/go-generics</a></div>
     </div>
   </div>
 
