@@ -60,10 +60,6 @@ layout: full
   </div>
 </div>
 
-<!-- TODO(asankov): bullets -->
-<!-- TODO(asankov): photo -->
-<!-- TODO(asankov): layout -->
-
 <style>
   .mr-14{
     width: 200px;
