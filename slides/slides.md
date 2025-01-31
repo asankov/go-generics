@@ -239,6 +239,12 @@ h1 {
 </style>
 
 ---
+layout: statement
+---
+
+# So what did the Go team did about that?
+
+---
 
 # 2009 <span class="font-normal"> - Language is publicly announced</span>
 
